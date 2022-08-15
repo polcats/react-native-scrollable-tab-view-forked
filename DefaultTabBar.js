@@ -1,8 +1,9 @@
 
 const React = require('react');
-const { ViewPropTypes, TouchableOpacity } = (ReactNative = require('react-native'))
+const {  TouchableOpacity } = (ReactNative = require('react-native'))
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
+import { ViewPropTypes } from "deprecated-react-native-prop-types";
 
 const {
   StyleSheet,

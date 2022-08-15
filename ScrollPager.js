@@ -2,9 +2,10 @@
 const React = require('react')
 
 const { Component } = React
-const { ViewPropTypes } = ReactNative = require('react-native')
+const ReactNative = require('react-native')
 const createReactClass = require('create-react-class')
 const PropTypes = require('prop-types')
+import { ViewPropTypes } from "deprecated-react-native-prop-types";
 
 const {
   Dimensions,
