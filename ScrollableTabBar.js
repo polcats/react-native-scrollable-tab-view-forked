@@ -285,12 +285,18 @@ const ScrollableTabBar = createReactClass({
     );
   },
 
-  componentWillReceiveProps(nextProps) {
-    // If the tabs change, force the width of the tabs container to be recalculated
-    if ( !isEqual(this.props.tabs, nextProps.tabs) && this.state._containerWidth ) {
+  componentDidUpdate(prevProps) {
+    if ( !isEqual(this.props.tabs, prevProps.tabs) && this.state._containerWidth ) {
       this.setState({ _containerWidth: null });
     }
   },
+
+  // componentWillReceiveProps(nextProps) {
+  //   // If the tabs change, force the width of the tabs container to be recalculated
+  //   if ( !isEqual(this.props.tabs, nextProps.tabs) && this.state._containerWidth ) {
+  //     this.setState({ _containerWidth: null });
+  //   }
+  // },
 
   onTabContainerLayout(e) {
     this._tabContainerMeasurements = e.nativeEvent.layout;
