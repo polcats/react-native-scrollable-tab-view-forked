@@ -3,6 +3,7 @@ const ReactNative = require("react-native");
 const PropTypes = require("prop-types");
 const createReactClass = require("create-react-class");
 import { ViewPropTypes, TextPropTypes } from "deprecated-react-native-prop-types";
+import { isEqual } from "lodash";
 
 const {
   View,
@@ -286,10 +287,7 @@ const ScrollableTabBar = createReactClass({
 
   componentWillReceiveProps(nextProps) {
     // If the tabs change, force the width of the tabs container to be recalculated
-    if (
-      JSON.stringify(this.props.tabs) !== JSON.stringify(nextProps.tabs) &&
-      this.state._containerWidth
-    ) {
+    if ( !isEqual(this.props.tabs, nextProps.tabs) && this.state._containerWidth ) {
       this.setState({ _containerWidth: null });
     }
   },
